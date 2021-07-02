@@ -3,6 +3,8 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 
+# usernames and passwords are: nahum:nahum2021, yamkela:calmdown, godwin:closeyourlaptops
+
 mydb = mysql.connector.connect(user='lifechoices', password='@lifechoices1234', host='127.0.0.1', database='Hospital',
                                auth_plugin='mysql_native_password')
 mycursor = mydb.cursor()
