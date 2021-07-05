@@ -26,19 +26,20 @@ pass_ent.place(x=250, y=100)
 def check():
     xy = mycursor.execute('select user,password from Login')
     for i in mycursor:
-        print(i)
-        if user_ent.get() == i[0] and pass_ent.get() == i[1]:
-            messagebox.showinfo("success", "You successfully logged in")
-            window.destroy()
-            root = Tk()
-            root.title("welcome user")
-            root.geometry("300x200")
-            welcome_label = Label(root, text="welcome user you successfully logged in")
-            welcome_label.place(x=20, y=80)
-    else:
-        messagebox.showerror("error", "the supplied information is incorrect")
-        user_ent.delete(0, END)
-        pass_ent.delete(0, END)
+        try:
+            print(i)
+            if user_ent.get() == i[0] and pass_ent.get() == i[1]:
+                messagebox.showinfo("success", "You successfully logged in")
+                window.destroy()
+                root = Tk()
+                root.title("welcome user")
+                root.geometry("300x200")
+                welcome_label = Label(root, text="welcome user you successfully logged in")
+                welcome_label.place(x=20, y=80)
+        except:
+            messagebox.showerror("error", "the supplied information is incorrect")
+            user_ent.delete(0, END)
+            pass_ent.delete(0, END)
 
 
 def erase():
